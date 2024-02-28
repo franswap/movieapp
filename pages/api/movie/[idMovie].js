@@ -41,10 +41,7 @@ export default async function handler(req, res) {
         case "PUT":
             try {
                 // Mise à jour de n'importe quel paramètre du film par ID
-                const updatedMovie = await db.collection("movies").updateOne(
-                    { _id: new ObjectId(idMovie) },
-                    { $set: req.body }
-                );
+                const updatedMovie = await OrmService.connectAndUpdateOne(MongoConfig.collections.movies, req);
                 res.status(200).json({ message: `Le film avec l'ID : ${idMovie} a bien été mis à jour` });
             } catch (error) {
                 console.error('Erreur lors de la mise à jour du film :', error);

@@ -35,4 +35,15 @@ export const OrmService = {
             throw error; // Renvoie l'erreur pour qu'elle soit gérée par le code appelant si nécessaire
         }
     },
+
+    connectAndUpdateOne: async (dbName, req) => { 
+        try {
+            const db = await connectToDb();
+            const result = await db.collection(dbName).updateOne( req.body );
+            return result;
+        } catch (error) {
+            console.error('Erreur lors de l\'insertion du document :', error);
+            throw error; // Renvoie l'erreur pour qu'elle soit gérée par le code appelant si nécessaire
+        }
+    },
 };
