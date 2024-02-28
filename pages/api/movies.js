@@ -1,14 +1,12 @@
-// Importez clientPromise depuis le fichier lib/mongodb.js
-import clientPromise from "../../lib/mongodb";
+import { OrmService } from "../../services/OrmService";
+import { MongoConfig } from "../../services/MongoConfigService";
 
 export default async function handler(req, res) {
-    const client = await clientPromise;
-    const db = client.db("sample_mflix");
 
     switch (req.method) {
         case "GET":
             try {
-                const movies = await db.collection("movies").find({}).limit(20).toArray();
+                const movies = await OrmService.connectAndFind(MongoConfig.collections.movies);
                 res.status(200).json({ data: movies });
             } catch (error) {
                 console.error('Erreur lors de la récupération des films :', error);
