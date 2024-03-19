@@ -1,0 +1,46 @@
+/* MovieCard.module.css */
+
+.movieCard {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    margin: 10%;
+    width: 260px;
+    height: 450px;
+  }
+  
+  .movieImage {
+    position: relative;
+    max-width: 300px;
+    max-height: 450px;
+    width: 260px;
+    height: 450px;
+    padding-top: 150%; /* Aspect ratio 2:3 for the movie poster */
+  }
+  
+  .movieImage img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .movieInfo {
+    padding: 10px;
+  }
+  
+  .movieInfo h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  
+  .movieInfo p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
