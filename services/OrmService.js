@@ -36,14 +36,16 @@ export const OrmService = {
         }
     },
 
-    connectAndUpdateOne: async (dbName, req) => { 
+    connectAndUpdateOne: async (dbName, idMovie, req) => { 
         try {
             const db = await connectToDb();
-            const result = await db.collection(dbName).updateOne( req.body );
+            const filter = { _id: new ObjectId(idMovie) };
+            const updateDoc = { $set: req.body }; // Met à jour les champs spécifiés dans le corps de la requête
+            const result = await db.collection(dbName).updateOne(filter, updateDoc);
             return result;
         } catch (error) {
-            console.error('Erreur lors de l\'insertion du document :', error);
-            throw error; // Renvoie l'erreur pour qu'elle soit gérée par le code appelant si nécessaire
+            console.error('Erreur lors de la mise à jour du document :', error);
+            throw error;
         }
-    },
+    }
 };
