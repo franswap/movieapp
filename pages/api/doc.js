@@ -10,6 +10,10 @@ const swaggerHandler = withSwagger(
             docExpansion: 'list',
             displayRequestDuration: true
         },
+        tags: [
+            { name: 'Movies', description: 'Endpoints related to movies' },
+            { name: 'Comments', description: 'Endpoints related to comments' }
+    ]
     }
 );
 
