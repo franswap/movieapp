@@ -12,14 +12,6 @@ export const getServerSideProps: GetServerSideProps<
 > = async () => {
   try {
     await clientPromise;
-    // `await clientPromise` will use the default database passed in the MONGODB_URI
-    // However you can use another database (e.g. myDatabase) by replacing the `await clientPromise` with the following code:
-    //
-    // `const client = await clientPromise`
-    // `const db = client.db("myDatabase")`
-    //
-    // Then you can execute queries against your database like so:
-    // db.find({}) or any of the MongoDB Node Driver commands
 
     return {
       props: { isConnected: true },
@@ -49,7 +41,7 @@ export default function Home({
         </h1>
 
         {isConnected ? (
-          <h2 className="subtitle">La connexion à MongoDB a reussi</h2>
+          <h2 className="subtitle">La connexion à MongoDB a réussi</h2>
         ) : (
           <h2 className="subtitle">
             La connexion à MongoDB a échouée. Regardez le <code>README.md</code>{" "}
@@ -57,18 +49,24 @@ export default function Home({
           </h2>
         )}
 
-        <HomeSite />
+        <div className="grid">
+          {/* Carte pour rediriger vers la page d'accueil */}
+          <a href="/Home" className="card">
+            <h3 className="text">Aller sur la page d'accueil &rarr;</h3>
+            <p className="text">Retourner à la page d'accueil</p>
+          </a>
+
+          {/* Carte pour rediriger vers Swagger */}
+          <a href="/swagger" className="card">
+            <h3 className="text">Voir Swagger &rarr;</h3>
+            <p className="text">Explorer l'API avec Swagger</p>
+          </a>
+        </div>
+
       </main>
 
       <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
+
       </footer>
 
       <style jsx>{`
@@ -79,6 +77,7 @@ export default function Home({
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          background-color: #000;
         }
 
         main {
@@ -86,15 +85,6 @@ export default function Home({
           flex: 1;
           display: flex;
           flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
           justify-content: center;
           align-items: center;
         }
@@ -129,6 +119,7 @@ export default function Home({
           margin: 0;
           line-height: 1.15;
           font-size: 4rem;
+          color: white;
         }
 
         .title,
@@ -138,6 +129,12 @@ export default function Home({
 
         .subtitle {
           font-size: 2rem;
+          color: white;
+        }
+
+        .text {
+          font-size: 2rem;
+          color: white;
         }
 
         .description {

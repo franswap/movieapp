@@ -11,6 +11,14 @@
     width: 260px;
     height: 450px;
   }
+
+  .movieCard:hover {
+    opacity: 0.8;
+    cursor: pointer;
+    transition: 1000ms;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    scale: 1.03;
+}
   
   .movieImage {
     position: relative;
@@ -37,10 +45,12 @@
   .movieInfo h3 {
     margin-top: 0;
     margin-bottom: 5px;
+    color: white;
   }
   
   .movieInfo p {
     margin: 0;
     font-size: 14px;
+    color: white;
   }
   

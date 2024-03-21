@@ -6,6 +6,11 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  background-color: black;
+}
+
+.container h1 {
+  color: white
 }
 
 .card {

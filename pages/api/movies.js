@@ -1,5 +1,103 @@
 /**
  * @swagger
+ * components:
+ *   schemas:
+ *     Movie:
+ *       type: object
+ *       properties:
+ *         _id:
+ *           type: string
+ *         plot:
+ *           type: string
+ *         genres:
+ *           type: array
+ *           items:
+ *             type: string
+ *         runtime:
+ *           type: integer
+ *         cast:
+ *           type: array
+ *           items:
+ *             type: string
+ *         poster:
+ *           type: string
+ *           format: uri
+ *         title:
+ *           type: string
+ *         fullplot:
+ *           type: string
+ *         languages:
+ *           type: array
+ *           items:
+ *             type: string
+ *         released:
+ *           type: string
+ *           format: date-time
+ *         directors:
+ *           type: array
+ *           items:
+ *             type: string
+ *         rated:
+ *           type: string
+ *         awards:
+ *           type: object
+ *           properties:
+ *             wins:
+ *               type: integer
+ *             nominations:
+ *               type: integer
+ *             text:
+ *               type: string
+ *         lastupdated:
+ *           type: string
+ *           format: date-time
+ *         year:
+ *           type: integer
+ *         imdb:
+ *           type: object
+ *           properties:
+ *             rating:
+ *               type: number
+ *             votes:
+ *               type: integer
+ *             id:
+ *               type: integer
+ *         countries:
+ *           type: array
+ *           items:
+ *             type: string
+ *         type:
+ *           type: string
+ *         tomatoes:
+ *           type: object
+ *           properties:
+ *             viewer:
+ *               type: object
+ *               properties:
+ *                 rating:
+ *                   type: number
+ *                 numReviews:
+ *                   type: integer
+ *                 meter:
+ *                   type: integer
+ *             fresh:
+ *               type: integer
+ *             critic:
+ *               type: object
+ *               properties:
+ *                 rating:
+ *                   type: number
+ *                 numReviews:
+ *                   type: integer
+ *                 meter:
+ *                   type: integer
+ *             rotten:
+ *               type: integer
+ *             lastUpdated:
+ *               type: string
+ *               format: date-time
+ *         num_mflix_comments:
+ *           type: integer
  * /api/movies:
  *   get:
  *     summary: Get all movies

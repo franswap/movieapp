@@ -1,5 +1,24 @@
 /**
  * @swagger
+ * components:
+ *   schemas:
+ *     Comment:
+ *       type: object
+ *       properties:
+ *         _id:
+ *           type: string
+ *         name:
+ *           type: string
+ *         email:
+ *           type: string
+ *           format: email
+ *         movie_id:
+ *           type: string
+ *         text:
+ *           type: string
+ *         date:
+ *           type: string
+ *           format: date-time
  * /api/comments:
  *   get:
  *     summary: Get all comments
@@ -40,7 +59,6 @@ import { MongoConfig } from "../../services/MongoConfigService";
 import { OrmService } from "../../services/OrmService";
 
 export default async function handler(req, res) {
-
     switch (req.method) {
         case "GET":
             try {

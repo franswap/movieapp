@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import MovieCard from '../pages/components/MovieCard'; // Assurez-vous d'importer le composant MovieCard
-import styles from './Home.module.css'; // Créez ce fichier CSS pour styliser votre carte de film
-
+import { useRouter } from 'next/router'; // Importer le hook useRouter
+import MovieCard from '../pages/components/MovieCard';
+import styles from './Home.module.css';
 
 const MovieGallery = () => {
   const [movies, setMovies] = useState([]);
+  const router = useRouter(); // Initialiser le hook useRouter
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -24,10 +25,20 @@ const MovieGallery = () => {
     fetchMovies();
   }, []);
 
+  // Fonction pour gérer la navigation vers la page du film
+  const handleMovieClick = (id) => {
+    router.push(`/movie/${id}`); // Naviguer vers la page du film avec l'ID spécifié
+  };
+
   return (
     <div className={styles.container}>
-      {movies.map(movie => (
-        <MovieCard key={movie._id} movie={movie} />
+      <h1>MovieApp</h1>
+      {movies.map((movie) => (
+        <MovieCard
+          key={movie._id}
+          movie={movie}
+          onClick={() => handleMovieClick(movie._id)} // Passer la fonction de gestion du clic
+        />
       ))}
     </div>
   );
