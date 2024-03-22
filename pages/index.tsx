@@ -41,27 +41,27 @@ export default function Home({
         </h1>
 
         {isConnected ? (
-          <h2 className="subtitle">La connexion à MongoDB a réussi</h2>
+          <>
+            <h2 className="subtitle">La connexion à MongoDB a réussi</h2>
+            <div className="grid">
+              {/* Carte pour rediriger vers la page d'accueil */}
+              <a href="/Home" className="card">
+                <h3 className="text">Aller sur la page d'accueil &rarr;</h3>
+                <p className="text">Retourner à la page d'accueil</p>
+              </a>
+
+              <a href="/swagger" className="card">
+                <h3 className="text">Voir Swagger &rarr;</h3>
+                <p className="text">Explorer l'API avec Swagger</p>
+              </a>
+            </div>
+          </>
         ) : (
           <h2 className="subtitle">
             La connexion à MongoDB a échouée. Regardez le <code>README.md</code>{" "}
             pour plus d'informations.
           </h2>
         )}
-
-        <div className="grid">
-          {/* Carte pour rediriger vers la page d'accueil */}
-          <a href="/Home" className="card">
-            <h3 className="text">Aller sur la page d'accueil &rarr;</h3>
-            <p className="text">Retourner à la page d'accueil</p>
-          </a>
-
-          {/* Carte pour rediriger vers Swagger */}
-          <a href="/swagger" className="card">
-            <h3 className="text">Voir Swagger &rarr;</h3>
-            <p className="text">Explorer l'API avec Swagger</p>
-          </a>
-        </div>
 
       </main>
 
@@ -206,6 +206,7 @@ export default function Home({
       <style jsx global>{`
         html,
         body {
+          margin: 0 auto;
           padding: 0;
           margin: 0;
           font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,

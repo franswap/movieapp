@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import styles from './[idMovie].module.css';
 import axios from 'axios'; // Importez axios pour effectuer la requête
 
 const MoviePage = () => {
@@ -38,8 +40,15 @@ const MoviePage = () => {
         <title>{movie.movie.title}</title>
         <meta name="description" content={movie.movie.plot} />
       </Head>
-      <h1>{movie.movie.title}</h1>
-      <p>{movie.movie.plot}</p>
+      <div className={styles.container}>
+        <h1>{movie.movie.title}</h1>
+        <span>Description : </span><p className={styles.intro}>{movie.movie.plot}</p>
+        <span>Genre : </span><p className={styles.intro}>{movie.movie.genres}</p>
+        <span>Année : </span><p className={styles.intro}>{movie.movie.year}</p>
+        <span>Pays : </span><p className={styles.intro}>{movie.movie.countries}</p>
+        <span>Directors : </span><p className={styles.intro}>{movie.movie.directors}</p>
+        <span>Note Tomatoes : </span><p className={styles.intro}>{movie.movie.tomatoes.viewer.rating}</p>
+      </div>
       {/* Afficher d'autres détails du film ici */}
     </div>
   );

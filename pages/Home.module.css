@@ -10,7 +10,14 @@
 }
 
 .container h1 {
-  color: white
+  margin: 40px auto;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 70px;
+  font-weight: bold;
+  color: red;
+  text-align: center;
+  letter-spacing: 5px;
+  text-shadow: 3px 0px 7px white, -3px 0px 7px white, 0px 4px 7px white;
 }
 
 .card {
